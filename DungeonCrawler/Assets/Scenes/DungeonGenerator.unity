@@ -154,7 +154,7 @@ MonoBehaviour:
   - {fileID: 1547446477037704573, guid: 1a28354692677444fa6a38018673ad5f, type: 3}
   - {fileID: 4071560842244903566, guid: 40fb93f09cbcad64db0ea8c0d9ec49c6, type: 3}
   chosenQuest:
-    chosenRoom: 0
+    chosenRoom: 1
     darkness: 0
     faction: 0
   questLocked: 0

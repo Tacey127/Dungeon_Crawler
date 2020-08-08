@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/// <summary>
+/// Manages the heads up display
+/// </summary>
 public class HUDManager : UIManager
 {
     public Text interactionText;

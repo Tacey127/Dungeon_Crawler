@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   space: 9
   itemList: []
+  inventoryManager: {fileID: 115423203195434035}
 --- !u!1 &4358879989819636867
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +184,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -218,6 +220,7 @@ GameObject:
   - component: {fileID: 4358879990527171595}
   - component: {fileID: 4358879990527171592}
   - component: {fileID: 4358879990527171594}
+  - component: {fileID: 4164414896092845205}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -281,6 +284,24 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &4164414896092845205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4358879990527171593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c73c3230e9caeb43ae94be33df55a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  damage:
+    baseValue: 0
+  armour:
+    baseValue: 0
 --- !u!1 &4358879991085716424
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +609,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 5430337686716328489, guid: fc5c872245c89814783188efa9b23475,
+        type: 3}
+      propertyPath: userInterface
+      value: 
+      objectReference: {fileID: 6028800414267894883}
     - target: {fileID: 6003151712592274052, guid: fc5c872245c89814783188efa9b23475,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -689,6 +715,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6755630614901360644}
     - target: {fileID: 7471649976469120332, guid: fc5c872245c89814783188efa9b23475,
+        type: 3}
+      propertyPath: userInterface
+      value: 
+      objectReference: {fileID: 6028800414267894883}
+    - target: {fileID: 7656733593693324280, guid: fc5c872245c89814783188efa9b23475,
         type: 3}
       propertyPath: userInterface
       value: 

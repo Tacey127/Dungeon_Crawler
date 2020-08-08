@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -7,7 +9,18 @@ public class Inventory : MonoBehaviour
 
     public int space = 20;
     public List<Item> itemList;
-    [SerializeField] InventoryManager inventoryManager;
+    [SerializeField] InventoryUIManager inventoryManager;
+
+    #region Singleton
+
+    public static Inventory instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    #endregion Singleton
 
     public bool AddItem(Item item) 
     {
@@ -34,4 +47,13 @@ public class Inventory : MonoBehaviour
         //inventoryui
         inventoryManager.UpdateInventoryUI();
     }
+
+    //Accessing inventorys such as chests, dead bodies, etc
+    public void SendItemToInventory(Item item, Inventory inventory)
+    {
+        if(inventory.AddItem(item)){
+            Remove(item);
+        }
+    }
+
 }

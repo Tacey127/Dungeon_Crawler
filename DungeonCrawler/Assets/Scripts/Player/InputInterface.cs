@@ -17,7 +17,7 @@ public class InputInterface : MonoBehaviour
     [SerializeField] PauseManager pauseManager;
     [SerializeField] public QuestManager questManager;
     [SerializeField] public HUDManager hudManager;
-    [SerializeField] InventoryManager inventoryManager;
+    [SerializeField] InventoryUIManager inventoryManager;
 
     // Update is called once per frame
     void Update()

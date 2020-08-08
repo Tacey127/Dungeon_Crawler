@@ -9,6 +9,7 @@ public class CharacterStats : MonoBehaviour
 
     public Stat damage;
     public Stat armour;
+    public Stat speed;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class CharacterStats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        damage -= armour.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         Debug.Log(transform.name + " takes " + damage + " damage.");

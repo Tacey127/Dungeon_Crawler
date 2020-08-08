@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : UIManager
+/// <summary>
+/// Manages the UI interface of a item collection
+/// </summary>
+public class InventoryUIManager : UIManager
 {
 
     public Transform itemsParent;
@@ -17,23 +20,18 @@ public class InventoryManager : UIManager
         {
             item.inventory = inventory;
         }
-        Debug.Log(slots.Length);
     }
 
     public void UpdateInventoryUI()
     {
-
-        Debug.Log("IUI");
         for (int i = 0; i < slots.Length; i++)
         {
             if(i < inventory.itemList.Count)
             {
                 slots[i].AddItem(inventory.itemList[i]);
-                Debug.Log("SlotAdded");
             }
             else
             {
-                Debug.Log("SlotCleared");
                 slots[i].ClearSlot();
             }
         }

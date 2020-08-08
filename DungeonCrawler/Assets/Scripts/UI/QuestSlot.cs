@@ -24,11 +24,29 @@ public class QuestSlot : MonoBehaviour
 
     void SetupQuestText()
     {
-        text.text = quest.chosenRoom.ToString();
-
-
-
+        text.text = ConvertLocationIntToString(quest.chosenRoom);
     }
+
+    string ConvertLocationIntToString(int chosenRoom)
+    {
+        string location = "";
+        switch (quest.chosenRoom)
+        {
+
+            case 0:
+                location = "ITTL";
+                break;
+            case 1:
+                location = "Stone fort";
+                break;
+            default:
+                location = "Quest Location Not Found";
+                break;
+        }
+
+        return location;
+    }
+
 
     public void ClearSlot()
     {

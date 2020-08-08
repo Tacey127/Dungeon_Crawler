@@ -12,6 +12,12 @@ public class InventorySlot : MonoBehaviour
     public Inventory inventory;
 
     Item item;
+
+    public bool isUsed;
+
+
+    #region UI
+
     public void AddItem(Item newItem)
     {
         item = newItem;
@@ -24,6 +30,9 @@ public class InventorySlot : MonoBehaviour
 
         selectionButton.interactable = true;
         closeButton.interactable = true;
+
+
+        isUsed = true;
     }
 
     public void ClearSlot()
@@ -38,7 +47,11 @@ public class InventorySlot : MonoBehaviour
 
         selectionButton.interactable = false;
         closeButton.interactable = false;
+
+        isUsed = false;
     }
+
+    #endregion UI
 
     public void OnSelectionButton()
     {

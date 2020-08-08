@@ -56,6 +56,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -105,5 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6563c26aa3998f4489a778168d75efd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: Interaction Text Not Set
+  interactText: This is a test pickup
   item: {fileID: 11400000, guid: 7e9ca11bc941d5c4cbd8ff842efc1407, type: 2}
