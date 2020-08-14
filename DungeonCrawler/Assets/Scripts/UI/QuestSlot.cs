@@ -24,13 +24,13 @@ public class QuestSlot : MonoBehaviour
 
     void SetupQuestText()
     {
-        text.text = ConvertLocationIntToString(quest.chosenRoom);
+      //  text.text = ConvertLocationIntToString(quest.chosenRoom);
     }
 
     string ConvertLocationIntToString(int chosenRoom)
     {
         string location = "";
-        switch (quest.chosenRoom)
+      /*  switch (quest.chosenRoom)
         {
 
             case 0:
@@ -43,7 +43,7 @@ public class QuestSlot : MonoBehaviour
                 location = "Quest Location Not Found";
                 break;
         }
-
+      */
         return location;
     }
 

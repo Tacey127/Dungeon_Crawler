@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 
 public class QuestGenerator : MonoBehaviour
@@ -8,8 +9,9 @@ public class QuestGenerator : MonoBehaviour
    [SerializeField] int questMinimum = 1;
 
     [SerializeField] int dungeonStartingRooms = 2;
+    public List<Quest> generatedQuests = new List<Quest>();
 
-    [SerializeField] public List<Quest> generatedQuests = new List<Quest>();
+    [SerializeField] FactionManager factionManager;
 
     // Start is called before the first frame update
     public void GenerateQuests()
@@ -22,13 +24,23 @@ public class QuestGenerator : MonoBehaviour
 
     Quest SetupQuest()
     {
-        Quest newQuest;
-        newQuest.chosenRoom = Random.Range(0, dungeonStartingRooms);
-        newQuest.faction = 0;
-        newQuest.darkness = Darkness.Bright;
+        Quest newQuest = new Quest();
+
+        newQuest.factionType = GetFactionType();
 
         return newQuest;
     }
+
+    FactionType GetFactionType()
+    {
+        return factionManager.GetFaction().factionType;
+    }
+    /*
+    QuestObjective GetObjective()
+    {
+
+    }
+    */
 }
 
 

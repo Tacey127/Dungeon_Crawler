@@ -32,7 +32,8 @@ public class DungeonInstancing : MonoBehaviour
 
     public GameObject getChosenRoom() 
     {
-        return startingRooms[chosenQuest.chosenRoom];
+        // return startingRooms[chosenQuest.chosenRoom];
+        return gameObject;
     }
 
 
