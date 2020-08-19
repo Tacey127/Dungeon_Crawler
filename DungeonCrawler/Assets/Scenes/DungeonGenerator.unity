@@ -154,9 +154,10 @@ MonoBehaviour:
   - {fileID: 1547446477037704573, guid: 1a28354692677444fa6a38018673ad5f, type: 3}
   - {fileID: 4071560842244903566, guid: 40fb93f09cbcad64db0ea8c0d9ec49c6, type: 3}
   chosenQuest:
-    chosenRoom: 1
+    factionType: 0
+    objectives: []
+    location: 0
     darkness: 0
-    faction: 0
   questLocked: 0
 --- !u!4 &884365357
 Transform:
@@ -252,7 +253,7 @@ PrefabInstance:
     - target: {fileID: 4358879990527171595, guid: a3c03c442f59bf24caffc516d0fd4e15,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4358879990527171595, guid: a3c03c442f59bf24caffc516d0fd4e15,
         type: 3}
@@ -302,7 +303,7 @@ Transform:
   - {fileID: 884365357}
   - {fileID: 2116797259}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1806934200
 GameObject:
@@ -368,7 +369,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960396715
 GameObject:
@@ -460,61 +461,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &2089222518
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2089222520}
-  - component: {fileID: 2089222519}
-  m_Layer: 0
-  m_Name: DungeonGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &2089222519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089222518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a3aecedbae3ca4eb92c3ffa26df5a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seed: 2
-  dungeonSize: 5
-  startRooms:
-  - {fileID: 1547446477037704573, guid: 1a28354692677444fa6a38018673ad5f, type: 3}
-  rooms:
-  - {fileID: 1547446477037704573, guid: 1a28354692677444fa6a38018673ad5f, type: 3}
-  hallways:
-  - {fileID: 3800129895127265353, guid: 406e6e6540ea4c349b465df4ef006742, type: 3}
-  endRooms: []
-  doorList: []
---- !u!4 &2089222520
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089222518}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2116797257
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +474,7 @@ GameObject:
   - component: {fileID: 2116797259}
   - component: {fileID: 2116797258}
   m_Layer: 0
-  m_Name: OOBBGEN
+  m_Name: DungeonGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -612,7 +560,7 @@ PrefabInstance:
     - target: {fileID: 7569006931895002015, guid: b22d04d27b4885442a13804bf6ae41dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7569006931895002015, guid: b22d04d27b4885442a13804bf6ae41dd,
         type: 3}

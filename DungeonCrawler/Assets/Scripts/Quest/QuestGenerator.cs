@@ -6,9 +6,7 @@ using UnityEngine;
 public class QuestGenerator : MonoBehaviour
 {
    [SerializeField] int questMaximum = 5;
-   [SerializeField] int questMinimum = 1;
 
-    [SerializeField] int dungeonStartingRooms = 2;
     public List<Quest> generatedQuests = new List<Quest>();
 
     [SerializeField] FactionManager factionManager;

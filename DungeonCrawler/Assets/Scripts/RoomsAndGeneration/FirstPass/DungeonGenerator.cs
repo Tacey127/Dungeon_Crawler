@@ -2,28 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OBBCollision : MonoBehaviour
+public class DungeonGenerator : MonoBehaviour
 {
-
-	
 	[SerializeField] int seed = 0;
 	[SerializeField] int dungeonSize = 3;
 	//List
 	[SerializeField] List<GameObject> doorList = new List<GameObject>();
 	[SerializeField] List<GameObject> roomList = new List<GameObject>();
 	//
-	void Start()
+	GameObject chosenStartRoom;
+
+    #region Init
+    void Start()
 	{
 		//turn off physics
 		Physics.autoSimulation = false;
 
-		Random.InitState(seed);
-		seed = (int)(Random.value * 10000);
+		SetupGenerationParameters();
+
 		StartGeneration();
 
 		//turn on physics
 		Physics.autoSimulation = true;
 	}
+
+	void SetupGenerationParameters()
+    {
+		DungeonGenerationInfo generationInfo = DungeonInstancing.instance.chosenQuest.generationInfo;
+
+		chosenStartRoom = DungeonInstancing.instance.getChosenRoom();
+
+		dungeonSize = generationInfo.dungeonSize;
+		seed = generationInfo.seed;
+		Random.InitState(seed);
+    }
 
 	void StartGeneration()
 	{
@@ -39,67 +51,10 @@ public class OBBCollision : MonoBehaviour
 		}
 	}
 
-	void GenerationLoop()
-	{
-		//choose a door, spawn a hallway from it
+    #endregion Init
 
-		GameObject chosenDoor = ChooseListObject(doorList.ToArray());
-		Door cDoor = chosenDoor.GetComponent<Door>();
-
-		GameObject hallwayObject = SpawnFromDoor(chosenDoor, cDoor.ChooseRoom());
-		GameObject disableObject = cDoor.parentRoom;
-
-		if (!AttemptCollisionCheck(hallwayObject, disableObject))//Has the collision failed
-		{
-			Destroy(hallwayObject);
-		}
-		else 
-		{
-			
-			//if the collsisioncheck comes back clean, continue
-			Door nextDoor = hallwayObject.GetComponent<Room>().GetAvailableDoor();
-			GameObject roomObject = SpawnFromDoor(nextDoor.gameObject, nextDoor.ChooseRoom());
-
-			disableObject = nextDoor.parentRoom;
-			//collisioncheck
-			if (!AttemptCollisionCheck(roomObject, disableObject))
-			{
-				Destroy(hallwayObject);
-				Destroy(roomObject);
-			}
-			else 
-			{
-				//add the rooms to the list
-				roomList.Add(hallwayObject);
-				roomList.Add(roomObject);
-
-				//adjust spawnable door list
-				shrinkList(doorList.IndexOf(chosenDoor), doorList);
-				doorList.AddRange(hallwayObject.GetComponent<Room>().GiveDoorsToGenerator());
-				shrinkList(doorList.IndexOf(nextDoor.gameObject), doorList);
-				doorList.AddRange(roomObject.GetComponent<Room>().GiveDoorsToGenerator());
-
-				//hide doors
-				cDoor.FinaliseDoorType();
-				nextDoor.FinaliseDoorType();
-			}
-		}
-
-		GenerationCleanUp();
-	}
-	
-	void GenerationCleanUp()
-	{
-		foreach (GameObject room in roomList)
-		{
-			room.GetComponent<Room>().FinaliseRoom();
-			room.GetComponent<Collider>().enabled = false;
-		}
-	}
-
-	//==================================================================List
-
-	GameObject ChooseListObject(GameObject[] rl)
+    #region List
+    GameObject ChooseListObject(GameObject[] rl)
 	{
 		int chosenRoom = (int)Mathf.Floor(Random.value * rl.Length);
 
@@ -121,12 +76,13 @@ public class OBBCollision : MonoBehaviour
 		listToShrink.Clear();
 		listToShrink.AddRange(newlist);
 	}
+    #endregion list
 
-	//=====================================================================Generation
-	void SpawnStartRoom()
+    #region Generation
+    void SpawnStartRoom()
 	{
 		//Room Spawns
-		GameObject roomObject = Instantiate(DungeonInstancing.instance.getChosenRoom(), transform);
+		GameObject roomObject = Instantiate(chosenStartRoom, transform);
 
 		//Add room to list
 		Room r = roomObject.GetComponent<Room>();
@@ -135,6 +91,56 @@ public class OBBCollision : MonoBehaviour
 
 		doorList.AddRange(r.GiveDoorsToGenerator());
 	}
+
+	void GenerationLoop()
+	{
+		//choose a door, spawn a hallway from it
+
+		GameObject chosenDoor = ChooseListObject(doorList.ToArray());
+		Door cDoor = chosenDoor.GetComponent<Door>();
+
+		GameObject hallwayObject = SpawnFromDoor(chosenDoor, cDoor.ChooseRoom());
+		GameObject disableObject = cDoor.parentRoom;
+
+		if (!AttemptCollisionCheck(hallwayObject, disableObject))//Has the collision failed
+		{
+			Destroy(hallwayObject);
+		}
+		else
+		{
+
+			//if the collsisioncheck comes back clean, continue
+			Door nextDoor = hallwayObject.GetComponent<Room>().GetAvailableDoor();
+			GameObject roomObject = SpawnFromDoor(nextDoor.gameObject, nextDoor.ChooseRoom());
+
+			disableObject = nextDoor.parentRoom;
+			//collisioncheck
+			if (!AttemptCollisionCheck(roomObject, disableObject))
+			{
+				Destroy(hallwayObject);
+				Destroy(roomObject);
+			}
+			else
+			{
+				//add the rooms to the list
+				roomList.Add(hallwayObject);
+				roomList.Add(roomObject);
+
+				//adjust spawnable door list
+				shrinkList(doorList.IndexOf(chosenDoor), doorList);
+				doorList.AddRange(hallwayObject.GetComponent<Room>().GiveDoorsToGenerator());
+				shrinkList(doorList.IndexOf(nextDoor.gameObject), doorList);
+				doorList.AddRange(roomObject.GetComponent<Room>().GiveDoorsToGenerator());
+
+				//hide doors
+				cDoor.FinaliseDoorType();
+				nextDoor.FinaliseDoorType();
+			}
+		}
+
+		GenerationCleanUp();
+	}
+
 	public GameObject SpawnFromDoor(GameObject aDoor, GameObject newRoom)
 	{
 		//Gets the world position and rotation of the the rooms chosen door
@@ -169,15 +175,25 @@ public class OBBCollision : MonoBehaviour
 		return newRoom;
 	}
 
-	//==================================================================================Collision
+	void GenerationCleanUp()
+	{
+		foreach (GameObject room in roomList)
+		{
+			room.GetComponent<Room>().FinaliseRoom();
+			room.GetComponent<Collider>().enabled = false;
+		}
+	}
 
-	/// <summary>
-	/// Is there a collision while ignoring the latter object  
-	/// </summary>
-	/// <param name="check">The collider to be checked</param>
-	/// <param name="disable">The Collider to be disabled</param>
-	/// <returns></returns>
-	public bool AttemptCollisionCheck(GameObject check, GameObject disable)
+    #endregion Generation
+
+	#region Collision
+    /// <summary>
+    /// Is there a collision while ignoring the latter object  
+    /// </summary>
+    /// <param name="check">The collider to be checked</param>
+    /// <param name="disable">The Collider to be disabled</param>
+    /// <returns></returns>
+    public bool AttemptCollisionCheck(GameObject check, GameObject disable)
 	{
 		//simulate physics to let instantiate spawn the room(numbers go wrong otherwise), check the ontriggerenter/get list of colliding objects
 		Collider disabledCollider = disable.GetComponent<Room>().roomCollider;
@@ -194,5 +210,5 @@ public class OBBCollision : MonoBehaviour
 
 		return !checkCollider.roomCollided;
 	}
-
+    #endregion Collision
 }

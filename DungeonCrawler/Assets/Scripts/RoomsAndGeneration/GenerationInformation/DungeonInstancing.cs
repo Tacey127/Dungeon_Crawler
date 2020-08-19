@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class DungeonInstancing : MonoBehaviour
 {
-    public static DungeonInstancing instance;
 
     [SerializeField]List<GameObject> startingRooms = new List<GameObject>();
 
@@ -17,6 +16,8 @@ public class DungeonInstancing : MonoBehaviour
     //Is the quest locked in, player is in the dungeon
     public bool questLocked = false;
 
+    #region Singleton
+    public static DungeonInstancing instance;
     private void Awake()
     {
         if(instance == null)
@@ -29,7 +30,9 @@ public class DungeonInstancing : MonoBehaviour
             Destroy(this);
         }
     }
+    #endregion Singleton
 
+    //setup of dungeon generation
     public GameObject getChosenRoom() 
     {
         // return startingRooms[chosenQuest.chosenRoom];
