@@ -30,7 +30,7 @@ public class DungeonGenerator : MonoBehaviour
     {
 		DungeonGenerationInfo generationInfo = DungeonInstancing.instance.chosenQuest.generationInfo;
 
-		chosenStartRoom = DungeonInstancing.instance.getChosenRoom();
+		chosenStartRoom = generationInfo.SpawnLocation;
 
 		dungeonSize = generationInfo.dungeonSize;
 		seed = generationInfo.seed;

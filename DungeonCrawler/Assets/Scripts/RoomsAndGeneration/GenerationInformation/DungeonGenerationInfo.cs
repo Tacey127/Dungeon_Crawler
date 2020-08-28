@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//First and SecondPass Generation Details
 public class DungeonGenerationInfo : ScriptableObject
 {
     public int seed;
     public Darkness darkness;
     public int dungeonSize;
+    public GameObject SpawnLocation;
 }
 
 public enum DungeonArchitecture { }
 
-public enum DungeonLocation { ITTL, Stone }
+
 
 public enum FurnitureType { }
 

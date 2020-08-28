@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b725dfd4d8ca9f45846a9f16c43cfa5, type: 3}
-  m_Name: FactionManager
+  m_Script: {fileID: 11500000, guid: be2c7a0b4cc134f498eb64b8f283266d, type: 3}
+  m_Name: StoneSpawnTheme
   m_EditorClassIdentifier: 
-  factions:
-  - {fileID: 11400000, guid: 1f07b2ed586ec65409c48f1371906785, type: 2}
-  - {fileID: 11400000, guid: 1f07b2ed586ec65409c48f1371906785, type: 2}
+  themeLocation: 1
+  locations:
+  - {fileID: 4071560842244903566, guid: 40fb93f09cbcad64db0ea8c0d9ec49c6, type: 3}

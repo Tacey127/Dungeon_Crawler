@@ -5,14 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public struct Quest
 {
-    public FactionType factionType;//adventurers, scavengers, etc
+    public Faction faction;//adventurers, scavengers, etc
     public List<QuestObjective> objectives;
 
     public DungeonGenerationInfo generationInfo;
+    public DungonTheme dungonTheme;
 
-
-    public DungeonLocation location;
-
-    public Darkness darkness;
 }
 public enum Objective { Collect }

@@ -10,6 +10,11 @@ public class FactionManager : ScriptableObject
 
     public Faction GetFaction()
     {
+        if(factions.Count == 0)
+        {
+            Debug.Log("No factions in factionManager");
+        }
+
         return factions[0];
     }
 

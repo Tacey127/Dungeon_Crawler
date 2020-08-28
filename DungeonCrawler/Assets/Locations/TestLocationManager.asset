@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b725dfd4d8ca9f45846a9f16c43cfa5, type: 3}
-  m_Name: FactionManager
+  m_Script: {fileID: 11500000, guid: 83ad06e2c377dfd4c848cf46ff2c1133, type: 3}
+  m_Name: TestLocationManager
   m_EditorClassIdentifier: 
-  factions:
-  - {fileID: 11400000, guid: 1f07b2ed586ec65409c48f1371906785, type: 2}
-  - {fileID: 11400000, guid: 1f07b2ed586ec65409c48f1371906785, type: 2}
+  SpawnThemes:
+  - {fileID: 11400000, guid: 8065bb03078f751498dbbfc21aeccddf, type: 2}
+  - {fileID: 11400000, guid: b9f45f3951649f848b7d0c49529e01da, type: 2}

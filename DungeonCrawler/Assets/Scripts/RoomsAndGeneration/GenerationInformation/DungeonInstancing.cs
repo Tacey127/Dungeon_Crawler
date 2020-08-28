@@ -32,12 +32,5 @@ public class DungeonInstancing : MonoBehaviour
     }
     #endregion Singleton
 
-    //setup of dungeon generation
-    public GameObject getChosenRoom() 
-    {
-        // return startingRooms[chosenQuest.chosenRoom];
-        return gameObject;
-    }
-
 
 }

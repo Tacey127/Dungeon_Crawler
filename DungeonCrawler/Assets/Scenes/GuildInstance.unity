@@ -641,9 +641,10 @@ MonoBehaviour:
   SceneName: DungeonGenerator
   ignoreQuestPreset: 1
   questOption:
-    chosenRoom: 1
-    darkness: 0
-    faction: 0
+    faction: {fileID: 0}
+    objectives: []
+    generationInfo: {fileID: 0}
+    dungonTheme: 0
 --- !u!65 &174688904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1519,9 +1520,10 @@ MonoBehaviour:
   SceneName: DungeonGenerator
   ignoreQuestPreset: 0
   questOption:
-    chosenRoom: 0
-    darkness: 0
-    faction: 0
+    faction: {fileID: 0}
+    objectives: []
+    generationInfo: {fileID: 0}
+    dungonTheme: 0
 --- !u!65 &507113671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2883,9 +2885,10 @@ MonoBehaviour:
   - {fileID: 1547446477037704573, guid: 1a28354692677444fa6a38018673ad5f, type: 3}
   - {fileID: 4071560842244903566, guid: 40fb93f09cbcad64db0ea8c0d9ec49c6, type: 3}
   chosenQuest:
-    chosenRoom: 0
-    darkness: 0
-    faction: 0
+    faction: {fileID: 0}
+    objectives: []
+    generationInfo: {fileID: 0}
+    dungonTheme: 0
   questLocked: 0
 --- !u!4 &1318201543
 Transform:
@@ -3320,6 +3323,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 394102165535522482, guid: a3c03c442f59bf24caffc516d0fd4e15,
+        type: 3}
+      propertyPath: factionManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7066543c2e431ab49860e3a41f391614,
+        type: 2}
+    - target: {fileID: 394102165535522482, guid: a3c03c442f59bf24caffc516d0fd4e15,
+        type: 3}
+      propertyPath: locationManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f6aa4b3df166eb499c67682900c7454,
+        type: 2}
     - target: {fileID: 462025117102983416, guid: a3c03c442f59bf24caffc516d0fd4e15,
         type: 3}
       propertyPath: space
@@ -4758,9 +4773,10 @@ MonoBehaviour:
   SceneName: DungeonGenerator
   ignoreQuestPreset: 0
   questOption:
-    chosenRoom: 1
-    darkness: 0
-    faction: 0
+    faction: {fileID: 0}
+    objectives: []
+    generationInfo: {fileID: 0}
+    dungonTheme: 0
 --- !u!65 &1922737499
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5022,7 +5038,7 @@ GameObject:
   - component: {fileID: 2084997302}
   - component: {fileID: 2084997306}
   m_Layer: 0
-  m_Name: DungeonBoard
+  m_Name: QuestBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5119,9 +5135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questMaximum: 5
-  questMinimum: 1
-  dungeonStartingRooms: 2
   generatedQuests: []
+  factionManager: {fileID: 11400000, guid: 7066543c2e431ab49860e3a41f391614, type: 2}
+  locationManager: {fileID: 11400000, guid: 4f6aa4b3df166eb499c67682900c7454, type: 2}
 --- !u!4 &2085715695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 458598, guid: 594d2b648448ef1458c5263b32ba1e1f,

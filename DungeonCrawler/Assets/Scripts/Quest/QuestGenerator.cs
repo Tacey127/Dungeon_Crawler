@@ -9,7 +9,9 @@ public class QuestGenerator : MonoBehaviour
 
     public List<Quest> generatedQuests = new List<Quest>();
 
+    //To be pontentially converted to singleton later
     [SerializeField] FactionManager factionManager;
+    [SerializeField] LocationManager locationManager;
 
     // Start is called before the first frame update
     public void GenerateQuests()
@@ -24,14 +26,27 @@ public class QuestGenerator : MonoBehaviour
     {
         Quest newQuest = new Quest();
 
-        newQuest.factionType = GetFactionType();
+        newQuest.faction = factionManager.GetFaction();
+
+        newQuest.generationInfo = SetupGenerationInfo();
 
         return newQuest;
     }
 
-    FactionType GetFactionType()
+    /// <summary>
+    /// Sets up the attributes of the dungeon, such as:
+    /// seed, dungeonsize, spawnroom
+    /// </summary>
+    DungeonGenerationInfo SetupGenerationInfo()
     {
-        return factionManager.GetFaction().factionType;
+        //ScriptableObject.CreateInstance<MyScriptableObject>();
+        DungeonGenerationInfo generationInfo = ScriptableObject.CreateInstance <DungeonGenerationInfo>();
+
+        generationInfo.seed = (int)(Random.value * float.MaxValue);
+        generationInfo.dungeonSize = 20;
+        generationInfo.SpawnLocation = locationManager.getRandomSpawnRoom();
+
+        return generationInfo;
     }
     /*
     QuestObjective GetObjective()
