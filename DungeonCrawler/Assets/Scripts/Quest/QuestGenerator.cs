@@ -42,9 +42,15 @@ public class QuestGenerator : MonoBehaviour
         //ScriptableObject.CreateInstance<MyScriptableObject>();
         DungeonGenerationInfo generationInfo = ScriptableObject.CreateInstance <DungeonGenerationInfo>();
 
+        //FIRST PASS
         generationInfo.seed = (int)(Random.value * float.MaxValue);
         generationInfo.dungeonSize = 20;
         generationInfo.SpawnLocation = locationManager.getRandomSpawnRoom();
+
+        //SECOND PASS
+        generationInfo.furnishingStyle = FurnishingStyle.basic;
+        generationInfo.encounterType = EncounterType.exploration;
+        generationInfo.lightingAmount = LightingAmount.Lit;
 
         return generationInfo;
     }

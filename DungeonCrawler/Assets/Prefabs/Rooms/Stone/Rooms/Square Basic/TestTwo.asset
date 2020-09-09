@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73478dc066655f744badc873109bcad5, type: 3}
+  m_Name: TestTwo
+  m_EditorClassIdentifier: 
+  preset: {fileID: 4200083553330099330, guid: b28fb68f924f2d144b98ef62c6e0b197, type: 3}
+  chance: 20
+  styles: 0000000001000000
+  encounterType: 1

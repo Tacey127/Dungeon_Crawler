@@ -12,4 +12,3 @@ public struct Quest
     public DungonTheme dungonTheme;
 
 }
-public enum Objective { Collect }

@@ -5,16 +5,14 @@ using UnityEngine;
 //First and SecondPass Generation Details
 public class DungeonGenerationInfo : ScriptableObject
 {
+    //First pass
     public int seed;
-    public Darkness darkness;
     public int dungeonSize;
     public GameObject SpawnLocation;
+
+    //Second pass
+    public FurnishingStyle furnishingStyle;
+    public EncounterType encounterType;
+    public LightingAmount lightingAmount;
 }
 
-public enum DungeonArchitecture { }
-
-
-
-public enum FurnitureType { }
-
-public enum Darkness { Bright, Dark, Pitch }

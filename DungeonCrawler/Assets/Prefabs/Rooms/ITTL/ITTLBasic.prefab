@@ -99,8 +99,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547446475961368054}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.015686275, g: 0.9803922, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 20
@@ -190,8 +191,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547446476225844134}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.015686275, g: 0.9803922, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 20
@@ -315,8 +317,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547446476830174704}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.015686275, g: 0.9803922, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 20
@@ -379,6 +382,7 @@ GameObject:
   - component: {fileID: -422276670233064671}
   - component: {fileID: 4808495286849119818}
   - component: {fileID: -1149315549537741326}
+  - component: {fileID: 292626469800540490}
   m_Layer: 0
   m_Name: ITTLBasic
   m_TagString: Untagged
@@ -423,10 +427,9 @@ MonoBehaviour:
   - {fileID: 622825104524783234}
   - {fileID: 1794738966737987191}
   - {fileID: 7077649591292568981}
-  roomTrueCenter: {fileID: 384445166325673121}
+  furnishing: {fileID: 292626469800540490}
   isNormalRoom: 0
   spawnedNeighbours: 0
-  spawningfrom: {fileID: 0}
   roomCollider: {fileID: 4808495286849119818}
   roomCollided: 0
   isEncounter: 0
@@ -460,6 +463,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &292626469800540490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547446477037704573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e977f8f515723a743ba5eb5317fe1d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  presets: []
 --- !u!64 &4181520062683839729
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -470,9 +486,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8464dcde31f710d41826ed86032d8977, type: 3}
 --- !u!1 &1547446477267537216
 GameObject:
@@ -516,9 +532,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8464dcde31f710d41826ed86032d8977, type: 3}
 --- !u!1 &1547446477567900547
 GameObject:
@@ -575,6 +591,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -599,6 +617,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1547446477567900557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -700,9 +719,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8464dcde31f710d41826ed86032d8977, type: 3}
 --- !u!1 &1547446477921574790
 GameObject:

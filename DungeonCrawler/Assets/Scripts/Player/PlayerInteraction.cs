@@ -59,7 +59,7 @@ public class PlayerInteraction : MonoBehaviour
         interactHold = interactable;
         //give the ui the interaction text
         string iText = interactHold.interactText;
-        Debug.Log(iText);
+        //Debug.Log(iText);
         inputInterface.hudManager.SetInteractionText(iText);
     }
 

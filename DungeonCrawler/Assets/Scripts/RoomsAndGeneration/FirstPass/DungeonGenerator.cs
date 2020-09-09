@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class DungeonGenerator : MonoBehaviour
 {
-	[SerializeField] int seed = 0;
-	[SerializeField] int dungeonSize = 3;
-	//List
-	[SerializeField] List<GameObject> doorList = new List<GameObject>();
+	//seed and dungeonsize in dungeon instancing
+	int seed = 0;
+	int dungeonSize = 3;
+	//
 	[SerializeField] List<GameObject> roomList = new List<GameObject>();
 	//
+	List<GameObject> doorList = new List<GameObject>();
 	GameObject chosenStartRoom;
 
     #region Init
@@ -18,9 +19,16 @@ public class DungeonGenerator : MonoBehaviour
 		//turn off physics
 		Physics.autoSimulation = false;
 
+		//Init
 		SetupGenerationParameters();
-
+		//First pass
 		StartGeneration();
+
+		//Second Pass
+		foreach (GameObject room in roomList)
+		{
+			room.GetComponent<Room>().FinaliseRoom();
+		}
 
 		//turn on physics
 		Physics.autoSimulation = true;
@@ -30,7 +38,13 @@ public class DungeonGenerator : MonoBehaviour
     {
 		DungeonGenerationInfo generationInfo = DungeonInstancing.instance.chosenQuest.generationInfo;
 
+		if (generationInfo.SpawnLocation == null)
+		{
+			Debug.Log("SpawnLocation Not set");
+		}
 		chosenStartRoom = generationInfo.SpawnLocation;
+
+
 
 		dungeonSize = generationInfo.dungeonSize;
 		seed = generationInfo.seed;
@@ -86,7 +100,8 @@ public class DungeonGenerator : MonoBehaviour
 
 		//Add room to list
 		Room r = roomObject.GetComponent<Room>();
-		
+		roomList.Add(roomObject);
+
 		r.roomCollider.isTrigger = true;
 
 		doorList.AddRange(r.GiveDoorsToGenerator());
@@ -138,7 +153,7 @@ public class DungeonGenerator : MonoBehaviour
 			}
 		}
 
-		GenerationCleanUp();
+		FirstPassCleanUp();
 	}
 
 	public GameObject SpawnFromDoor(GameObject aDoor, GameObject newRoom)
@@ -154,7 +169,7 @@ public class DungeonGenerator : MonoBehaviour
 		newRoom = Instantiate(newRoom, roomPos, Quaternion.identity, transform);
 		Room spawnedRoom = newRoom.GetComponent<Room>();
 
-		spawnedRoom.spawningfrom = aDoor;
+		//spawnedRoom.spawningfrom = aDoor; //DEBUG
 
 		//Pick a entry from the hallway to connect to
 		GameObject bChosenDoor = ChooseListObject(spawnedRoom.spawnableDoors.ToArray());
@@ -175,11 +190,10 @@ public class DungeonGenerator : MonoBehaviour
 		return newRoom;
 	}
 
-	void GenerationCleanUp()
+	void FirstPassCleanUp()
 	{
 		foreach (GameObject room in roomList)
 		{
-			room.GetComponent<Room>().FinaliseRoom();
 			room.GetComponent<Collider>().enabled = false;
 		}
 	}

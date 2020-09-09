@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73478dc066655f744badc873109bcad5, type: 3}
+  m_Name: StoneEntrance
+  m_EditorClassIdentifier: 
+  preset: {fileID: 5870952067942950058, guid: 405f37fd48ab0b348a123c8df520b0a7, type: 3}
+  chance: 0
+  styles: 0000000001000000
+  encounterType: 1

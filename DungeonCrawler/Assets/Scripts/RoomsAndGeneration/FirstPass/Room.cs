@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent(typeof(RoomFurnishing))]
 public class Room : MonoBehaviour {
     
     //Generation
@@ -14,7 +14,7 @@ public class Room : MonoBehaviour {
     public bool spawnedNeighbours = false;
 
     //debug
-    public GameObject spawningfrom;
+    //public GameObject spawningfrom;
 
     //Collision
     public Collider roomCollider;
@@ -24,8 +24,13 @@ public class Room : MonoBehaviour {
     [SerializeField] public bool isEncounter = false;
     public int remainingObjectives = 0;
 
-    
-    //===================================================================================Doors
+    //editor / game init
+    private void Awake()
+    {
+        furnishing = GetComponent<RoomFurnishing>();
+    }
+
+    #region Doors
 
     public List<GameObject> GiveDoorsToGenerator()
     {
@@ -45,19 +50,25 @@ public class Room : MonoBehaviour {
 
     }
 
-    //==================================================================================CollisionCheck
+    #endregion Doors
+
+    //CollisionCheck
     void OnTriggerEnter(Collider other)
     {
         roomCollided = true;
     }
 
-    //=================================================================================Post-Spawn Generation
+    //Post-Spawn Generation
 
     public void FinaliseRoom()
     {
         if(furnishing!= null)
         {
-           // furnishing.Furnish();
+            furnishing.Furnish();
+        }
+        else
+        {
+            Debug.Log("room has no RoomFurnishing");
         }
     }
 

@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: -422276670233064671}
   - component: {fileID: 4808495286849119818}
   - component: {fileID: -1149315549537741326}
+  - component: {fileID: 2594592200784585875}
   m_Layer: 0
   m_Name: ITTLElevator
   m_TagString: Untagged
@@ -152,10 +153,9 @@ MonoBehaviour:
   - {fileID: 5232478095037141976}
   - {fileID: 7428995184421690879}
   - {fileID: 3403882994717253946}
-  roomTrueCenter: {fileID: 384445166325673121}
+  furnishing: {fileID: 2594592200784585875}
   isNormalRoom: 0
   spawnedNeighbours: 0
-  spawningfrom: {fileID: 0}
   roomCollider: {fileID: 4808495286849119818}
   roomCollided: 0
   isEncounter: 0
@@ -189,6 +189,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2594592200784585875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547446477037704573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e977f8f515723a743ba5eb5317fe1d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  presets: []
 --- !u!1 &1547446477567900547
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +257,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -268,6 +283,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1547446477567900557
 BoxCollider:
   m_ObjectHideFlags: 0
