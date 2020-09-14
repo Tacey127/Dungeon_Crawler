@@ -16,3 +16,4 @@ MonoBehaviour:
   chance: 20
   styles: 0000000001000000
   encounterType: 1
+  lightingAmount: 2

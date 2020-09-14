@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WellLit
   m_EditorClassIdentifier: 
   preset: {fileID: 3286958176084269476, guid: a996f598fe5b2c140ac80c1c7ac68fe3, type: 3}
-  chance: 20
+  chance: 30
   styles: 0000000001000000
   encounterType: 1
+  lightingAmount: 1

@@ -5,8 +5,16 @@ using UnityEngine;
 /// <summary>
 /// Manages the UI interface of a item collection
 /// </summary>
-public class InventoryUIManager : UIManager
+public class InventoryUIManager : UIScreen
 {
+
+    InventoryUIManager()
+    {
+        uiShown = UIShown.Inventory;
+        cursorMode = CursorLockMode.Confined;
+        stopTimeOnScreen = true;
+    }
+
 
     public Transform itemsParent;
     [SerializeField] Inventory inventory;

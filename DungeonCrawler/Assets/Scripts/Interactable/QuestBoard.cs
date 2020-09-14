@@ -12,7 +12,7 @@ public class QuestBoard : Interactable
     {
         //connect to the quest board
         //get player quest UI enabled.
-        interact.inputInterface.EnableQuestScreen();
+        InputInterface.instance.EnableQuestScreen();
     }
 
 

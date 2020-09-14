@@ -48,6 +48,7 @@ public class QuestGenerator : MonoBehaviour
         generationInfo.SpawnLocation = locationManager.getRandomSpawnRoom();
 
         //SECOND PASS
+
         generationInfo.furnishingStyle = FurnishingStyle.basic;
         generationInfo.encounterType = EncounterType.exploration;
         generationInfo.lightingAmount = LightingAmount.Lit;

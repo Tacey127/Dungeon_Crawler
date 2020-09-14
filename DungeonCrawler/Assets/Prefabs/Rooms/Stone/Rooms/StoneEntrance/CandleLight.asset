@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73478dc066655f744badc873109bcad5, type: 3}
-  m_Name: StoneEntrance
+  m_Name: CandleLight
   m_EditorClassIdentifier: 
-  preset: {fileID: 5870952067942950058, guid: 405f37fd48ab0b348a123c8df520b0a7, type: 3}
-  chance: 0
+  preset: {fileID: 4654406886752706883, guid: 4af84a6de26dca548bf8cb343cf26eac, type: 3}
+  chance: 20
   styles: 0000000001000000
   encounterType: 1
+  lightingAmount: 2

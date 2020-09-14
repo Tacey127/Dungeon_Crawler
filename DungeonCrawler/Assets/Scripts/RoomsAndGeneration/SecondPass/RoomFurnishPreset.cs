@@ -35,6 +35,14 @@ public enum EncounterType
     none, exploration
 }
 
+
+public enum LightingAmount 
+{
+    WellLit, Lit, Dark, Pitch 
+}
+
+
+
 public enum FurnishAge
 {
     recent,
@@ -45,9 +53,4 @@ public enum FurnishAge
 public enum LootAmount
 {
     none, low, medium, high
-}
-
-public enum LightingAmount 
-{
-    WellLit, Lit, Dark, Pitch 
 }
