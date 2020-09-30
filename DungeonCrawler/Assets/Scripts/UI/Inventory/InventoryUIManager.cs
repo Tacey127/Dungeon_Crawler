@@ -30,8 +30,14 @@ public class InventoryUIManager : UIScreen
         }
     }
 
+    private void OnEnable()
+    {
+        UpdateInventoryUI();
+    }
+
     public void UpdateInventoryUI()
     {
+
         for (int i = 0; i < slots.Length; i++)
         {
             if(i < inventory.itemList.Count)

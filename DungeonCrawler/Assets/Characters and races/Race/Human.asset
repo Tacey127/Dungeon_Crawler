@@ -18,3 +18,8 @@ MonoBehaviour:
   jumpHeight: 3
   minSize: 1.5
   maxSize: 1.9
+  raceAttributes:
+  - attributeName: Head
+    decorationList: []
+  - attributeName: Body
+    decorationList: []

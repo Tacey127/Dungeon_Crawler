@@ -9,10 +9,7 @@ public class InputInterface : MonoBehaviour
 
     UIShown currentUI = UIShown.HUD;
 
-    [SerializeField] PauseManager pauseManager;
-    [SerializeField] public QuestManager questManager;
     [SerializeField] public HUDManager hudManager;
-    [SerializeField] InventoryUIManager inventoryManager;
 
     #region singleton
 
@@ -60,10 +57,15 @@ public class InputInterface : MonoBehaviour
 
         if (Input.GetButtonDown("Inventory") && currentUI == UIShown.HUD)
         {
-            inventoryManager.UpdateInventoryUI();
             SwitchUIShown(UIShown.Inventory);
         }
 
+
+
+        if (Input.GetButtonDown("CharacterEditor"))
+        {
+            SwitchUIShown(UIShown.CharacterEditor);
+        }
     }
 
     void SwitchUIShown(UIShown ui)

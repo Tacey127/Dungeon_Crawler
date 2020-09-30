@@ -8,6 +8,9 @@ public class TabHandler : MonoBehaviour
 
     public void ActivateTab(GameObject tabToActivate)
     {
+
+        Debug.Log("Tab pressed");
+
         foreach (GameObject tab in tabs)
         {
             if(tab != tabToActivate)
